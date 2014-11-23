@@ -1,0 +1,105 @@
+// Colors
+$main-teal: #8EC5C5;
+$dark-gray: #2D2D2D;
+$light-gray: #5B5B5B;
+$white: #FFF;
+// Font Weight
+$font-light: 300;
+$font-normal: 400;
+$font-bold: 700;
+$body-font-family: 'Open Sans', sans-serif;
+
+@import "http://fonts.googleapis.com/css?family=Open+Sans:400,700,300.css";
+@import "partials/settings";
+@import "../bower_components/foundation/scss/foundation.scss";
+
+@mixin border-radius($radius : 10px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+header#pageHeader {
+  padding: 50px 0 0;
+  background-color: $main_teal;
+  background-image: url(/assets/header_bg.png);
+  // position: relative;
+  & .logoImg {
+    width: 160px;
+    height: 80px;
+    margin: 0 auto;
+    background-image: url(/assets/logo.png);
+    background-repeat: no-repeat;
+  } 
+  & h1.pageTitle {
+    font-size: 28px;
+    font-weight: $font-light;
+    text-align: center;
+    & span.bold {
+      font-weight: $font-bold;
+    }
+  }
+  .row {
+    .contain-to-grid {
+      margin-bottom: -32px;
+      // position: absolute;
+      // bottom: -32px;
+      @include border-radius();
+      nav.top-bar {
+        @include border-radius();
+        section.top-bar-section {
+          text-align: center;
+          ul {
+            @media #{$medium-up} {
+              margin: 0 auto;
+              display: inline-block;
+            }
+            li {
+              margin-right: 10px;
+              &.active a {
+                color: $white;
+                font-weight: $font-bold;
+              }
+              a {
+                color: $main-teal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.content {
+  padding-top: 70px;
+  .heroUnit {
+    background-color: $main-teal;
+    padding: 40px;
+    position: relative;
+    @include border-radius();
+    .columns {
+      & p.heroText {
+        font-size: 28px;
+        font-weight: $font-light;
+        letter-spacing: 1px;
+        & span {
+          font-weight: $font-bold;
+        }
+      }
+      & .heroUfo {
+        width: 300px;
+        height: 170px;
+        position: absolute;
+        top: -63px;
+        background-image: url(/assets/ship.png);
+        background-repeat: no-repeat;
+      }
+      & .heroButton {
+        width: 300px;
+        position: absolute;
+        bottom: -240px;
+      }
+    }
+  }
+}
